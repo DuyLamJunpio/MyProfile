@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -19,16 +19,17 @@
     </div>
     <div class="wrapper">
         <div class="buttons">
-            <button>Đang load vào profile của Duy Lâm <i class="fa-regular fa-face-kiss"></i></button>
+            <button class="btn">Click để vào profile của Duy Lâm <i class="fa-regular fa-face-kiss"></i></button>
         </div>
     </div>
 
 </body>
 
 <script>
-    setTimeout(function () {
-        window.location.href = "start.html";
-      }, 5000);
+  let btn = document.querySelector(".btn");
+  btn.addEventListener("click", function(){
+    window.location.href = "start.html";
+  })
 </script>
 
 <script src="https://kit.fontawesome.com/104db21d31.js" crossorigin="anonymous"></script>
