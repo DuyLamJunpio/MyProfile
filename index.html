@@ -23,6 +23,9 @@
 </style>
 
 <body>
+  <audio id="audioPlayer" controls autoplay style="display: none;">
+    <source src="Download.mp3" type="audio/mpeg">
+  </audio>
   <div class="wrapper">
     <div class="img-area">
       <div class="inner-area">
@@ -31,7 +34,7 @@
           alt="">
       </div>
     </div>
-    <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+    <div class="icon arrow"><a href="start.html"><i class="fas fa-arrow-left"></i></a></div>
     <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
     <div class="name">Đào Duy Lâm</div>
     <div class="about">Designer & Developer</div>
@@ -53,9 +56,6 @@
     <div class="btns">
       <a href="#">No</a>
     </div>
-    <audio id="audioPlayer" controls autoplay style="display: none;">
-      <source src="Download.mp3" type="audio/mpeg">
-    </audio>
   </div>
 </body>
 
@@ -66,7 +66,7 @@
     if (!heart.classList.contains("forward")) {
       heart.classList.add("forward");
       heart.classList.remove("reverse")
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.href = "tym.html";
       }, 3000);
     } else {
@@ -89,21 +89,21 @@
   });
 
   btns.addEventListener("mouseover", function () {
-      position ? (position = 0) : (position = 200);
-      btns.style.transform = `translate(${position}px,0px)`;
-      btns.style.transition = "all 0.3s ease";
-      aTag.innerText = "YES :))";
-    });
+    position ? (position = 0) : (position = 200);
+    btns.style.transform = `translate(${position}px,0px)`;
+    btns.style.transition = "all 0.3s ease";
+    aTag.innerText = "YES :))";
+  });
 
-    btns.addEventListener("mouseout", function () {
-      aTag.innerText = "NO";
-    });
+  btns.addEventListener("mouseout", function () {
+    aTag.innerText = "NO";
+  });
 
 </script>
 <script>
   // Gắn sự kiện 'ended' cho thẻ <audio>
   var audio = document.getElementById("audioPlayer");
-  audio.addEventListener("ended", function() {
+  audio.addEventListener("ended", function () {
     audio.currentTime = 0; // Đặt lại thời gian của âm thanh về 0
     audio.play(); // Phát lại âm thanh khi nó kết thúc
   });
