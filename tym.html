@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +9,9 @@ HTML
 </head>
 
 <body>
+	<audio id="audioPlayer" controls autoplay style="display: none;">
+		<source src="Way Back Home (Feat. Conor Maynard) [sam Feldt Festival Mix] - SHAUN.mp3" type="audio/mpeg">
+	  </audio>
 <style>
   body {
   background-color: #000;    
@@ -269,6 +271,16 @@ function draw() {
 draw();
 
 </script>
+
+<script>
+    // Gắn sự kiện 'ended' cho thẻ <audio>
+    var audio = document.getElementById("audioPlayer");
+    audio.addEventListener("ended", function() {
+      audio.currentTime = 0; // Đặt lại thời gian của âm thanh về 0
+      audio.play(); // Phát lại âm thanh khi nó kết thúc
+    });
+  </script>
+
 </body>
 
 </html>

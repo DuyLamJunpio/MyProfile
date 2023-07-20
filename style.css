@@ -310,8 +310,10 @@ body{
   text-transform: uppercase;
   letter-spacing: 1px;
   overflow: hidden;
+  cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
 .btns a:last-child{
   background: linear-gradient(90deg, #ff83a2, #ffbad2);
 }
