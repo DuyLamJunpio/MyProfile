@@ -53,6 +53,9 @@
     <div class="btns">
       <a href="#">No</a>
     </div>
+    <audio id="audioPlayer" controls autoplay style="display: none;">
+      <source src="Download.mp3" type="audio/mpeg">
+    </audio>
   </div>
 </body>
 
@@ -76,16 +79,33 @@
 
 <script>
   var btns = document.querySelector(".btns");
-  var position;
-  btns.addEventListener("mouseover", function () {
-    position ? (position = 0) : (position = 200);
-    btns.style.transform = `translate(${position}px,0px)`;
-    btns.style.transition = "all 0.3s ease";
-  });
+  const aTag = btns.querySelector('a');
+  var position = 0;
+
   btns.addEventListener("click", function () {
     position ? (position = 0) : (position = 200);
     btns.style.transform = `translate(${position}px,0px)`;
     btns.style.transition = "all 0.3s ease";
+  });
+
+  btns.addEventListener("mouseover", function () {
+      position ? (position = 0) : (position = 200);
+      btns.style.transform = `translate(${position}px,0px)`;
+      btns.style.transition = "all 0.3s ease";
+      aTag.innerText = "YES :))";
+    });
+
+    btns.addEventListener("mouseout", function () {
+      aTag.innerText = "NO";
+    });
+
+</script>
+<script>
+  // Gắn sự kiện 'ended' cho thẻ <audio>
+  var audio = document.getElementById("audioPlayer");
+  audio.addEventListener("ended", function() {
+    audio.currentTime = 0; // Đặt lại thời gian của âm thanh về 0
+    audio.play(); // Phát lại âm thanh khi nó kết thúc
   });
 </script>
 
