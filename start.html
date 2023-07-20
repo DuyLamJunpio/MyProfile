@@ -1,36 +1,114 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
-<html lang="en" dir="ltr">
+
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Duylamjunpio</title>
-    <link rel="stylesheet" href="start.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <meta charset="UTF-8">
+  <title>DUYLAMJUNPIO</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="shadow"></div>
-    </div>
-    <div class="wrapper">
-        <div class="buttons">
-            <button>Đang load vào profile của Duy Lâm <i class="fa-regular fa-face-kiss"></i></button>
-        </div>
-    </div>
+<style>
+  .yes {
+    text-align: center;
+    margin-top: 15px;
+    transform: rotate(45deg);
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+  }
+</style>
 
+<body>
+  <audio id="audioPlayer" controls autoplay style="display: none;">
+    <source src="Download.mp3" type="audio/mpeg">
+  </audio>
+  <div class="wrapper">
+    <div class="img-area">
+      <div class="inner-area">
+        <img
+          src="https://scontent-hkt1-2.xx.fbcdn.net/v/t39.30808-6/358587414_3618359181820547_3485292345118713410_n.jpg?_nc_cat=105&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zM8AwqH0DMoAX-by1ah&_nc_ht=scontent-hkt1-2.xx&oh=00_AfBLfh95T9ygEGQ_IQTxu3Y2i3xbh3etzZBpIOYk2m0Zmg&oe=64BF0992"
+          alt="">
+      </div>
+    </div>
+    <div class="icon arrow"><a href="index.html"><i class="fas fa-arrow-left"></i></a></div>
+    <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+    <div class="name">Đào Duy Lâm</div>
+    <div class="about">Designer & Developer</div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/duylamjunpio" class="fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://discord.com/channels/1131623019714977892/1131623019714977894" class="dis"><i
+          class="fa-brands fa-discord"></i></a>
+      <a href="https://www.instagram.com/duylamjunpio/" class="insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@duylamdev" class="tik"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <div class="buttons">
+      <button>Cho mình làm quen nhé <i class="fa-solid fa-heart" style="color: #ff0000;"></i></button>
+    </div>
+    <div class="heart">
+      <span class="circle">
+        <p class="yes">Yes</p>
+      </span>
+    </div>
+    <div class="btns">
+      <a href="#">No</a>
+    </div>
+  </div>
 </body>
 
 <script>
-    setTimeout(function () {
-        window.location.href = "index.html";
-      }, 5000);
+  const heart = document.querySelector(".heart");
+
+  heart.addEventListener("click", () => {
+    if (!heart.classList.contains("forward")) {
+      heart.classList.add("forward");
+      heart.classList.remove("reverse")
+      setTimeout(function () {
+        window.location.href = "tym.html";
+      }, 3000);
+    } else {
+      heart.classList.add("reverse")
+      heart.classList.remove("forward");
+    }
+  })
+
+</script>
+
+<script>
+  var btns = document.querySelector(".btns");
+  const aTag = btns.querySelector('a');
+  var position = 0;
+
+  btns.addEventListener("click", function () {
+    position ? (position = 0) : (position = 200);
+    btns.style.transform = `translate(${position}px,0px)`;
+    btns.style.transition = "all 0.3s ease";
+  });
+
+  btns.addEventListener("mouseover", function () {
+    position ? (position = 0) : (position = 200);
+    btns.style.transform = `translate(${position}px,0px)`;
+    btns.style.transition = "all 0.3s ease";
+    aTag.innerText = "YES :))";
+  });
+
+  btns.addEventListener("mouseout", function () {
+    aTag.innerText = "NO";
+  });
+
+</script>
+<script>
+  // Gắn sự kiện 'ended' cho thẻ <audio>
+  var audio = document.getElementById("audioPlayer");
+  audio.addEventListener("ended", function () {
+    audio.currentTime = 0; // Đặt lại thời gian của âm thanh về 0
+    audio.play(); // Phát lại âm thanh khi nó kết thúc
+  });
 </script>
 
 <script src="https://kit.fontawesome.com/104db21d31.js" crossorigin="anonymous"></script>
+
 </html>
